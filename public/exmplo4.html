@@ -12,15 +12,29 @@
             <img :src="itens" alt="" style="width:200px;">
         </div>
         <hr>
-        <p v-for="elementos in frutas">
-            {{ elementos }}
+        <p v-for="(elementos, indice) in frutas">
+            {{ indice }} - {{ elementos }}
         </p>
         <hr>
 
         <p v-for="elementos in eletro">
             {{ elementos }}
         </p>
+        <hr>
 
+        <p v-for="(valor, chave, indice) in pessoa">
+         {{ indice }} -  {{ chave }} : {{ valor }}
+        </p>
+        <hr>
+
+        <p v-for="itens in carros">
+            {{ itens.marca }} - {{ itens.modelo }}
+        </p>
+        <hr>
+
+        <p v-for="cont in 10">
+            {{ cont }}
+        </p>
 
     </section>
     
@@ -41,6 +55,18 @@
                         'Ais Friyer',
                         'Liquidificador',
                         'Microondas'
+                    ], 
+                    // Objeto
+                    pessoa:{
+                        nome:"Fulano da Silva",
+                        idade:56,
+                        endereco:"Rua dos alfeneiros"
+                    },
+                    // vetor de objetos
+                    carros:[
+                        {marca:"Porsche", modelo:911},
+                        {marca:"Fiat", modelo:"Pálio"},
+                        {marca:"VolksWagen", modelo:"Gol G6"}
                     ]
 
                 }
