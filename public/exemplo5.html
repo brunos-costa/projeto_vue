@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 5 Vue</title>
+</head>
+<body>
+    <section id="app">
+        <h1>Lista de compras</h1>
+        <form action="">
+            <input type="text" v-model="produto">
+            <button v-on:click.prevent="adicionarProduto()"> Inserir produto</button>
+            <button @click.prevent="removerProduto()">Remover item</button>
+        </form>
+
+        <ul>
+            <li v-for="item in lista">{{ item }}</li>
+        </ul>
+
+
+    </section>    
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    lista:[],
+                    produto:''
+                }
+            },
+            methods:{
+                adicionarProduto(){
+                    if(this.produto == ""){
+                        alert("Você precisa digitar alguma coisa")
+                    }
+                    else{
+                        this.lista.push(this.produto)// adicionando elemento no vetor
+                        this.produto = ''// limpar o campo input
+                    }
+                    
+                },
+                removerProduto(){
+                    this.lista.pop()// remove o último item do vetor
+                }
+            }
+        })
+
+        app.mount("#app")
+    </script>
+</body>
+</html>
