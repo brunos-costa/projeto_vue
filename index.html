@@ -75,11 +75,11 @@
                <form action="">
                     <div class="d-flex align-items-center">
                         <span class="material-symbols-outlined fs-1 me-2">event</span>
-                        <input type="number" class="form-control form-control-lg" placeholder="Digite o ano do seu nascimento com 4 dígitos" min="1900" max="2050" required>
+                        <input type="number" class="form-control form-control-lg" placeholder="Digite o ano do seu nascimento com 4 dígitos" min="1900" max="2050" required v-model="campoIdade">
                     </div>
 
                     <div class="d-flex justify-content-end mt-2">
-                        <button type="submit" class="btn btn-lg btn-primary">Calcular</button>
+                        <button type="submit" class="btn btn-lg btn-primary" @click.prevent="calcularIdade()">Calcular</button>
                     </div>
                </form>
            </div>

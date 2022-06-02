@@ -14,7 +14,8 @@ const app = Vue.createApp({
                 diaSemana : "Exibir o dia da semana a partir de uma data inserida pelo usuário",
                 desconto : "Calcular  o  resultado  a  partir  de  um  valor  base  e  o percentual de desconto indicados pelo usuário"
             },
-            textoInicial:'Olá, Seja Bem Vindo ao Nosso Sistema'
+            textoInicial:'Olá, Seja Bem Vindo ao Nosso Sistema',
+            campoIdade:''
         }
     },
     methods:{
@@ -33,6 +34,11 @@ const app = Vue.createApp({
                     this.bloco[elementos] = false
                 }
             }
+        },
+        calcularIdade(){
+            let anoAtual = new Date().getFullYear()// Estou pegando o ano atual
+            let resposta = anoAtual - this.campoIdade
+            console.log(resposta)
         }
     }
 })
