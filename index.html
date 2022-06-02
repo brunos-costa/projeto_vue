@@ -35,13 +35,13 @@
                                 <a href="" class="nav-link idade" @click.prevent="verificarLink($event.target.classList)">Calcular Idade</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link cambio">Calcular Câmbio</a>
+                                <a href="" class="nav-link cambio" @click.prevent="verificarLink($event.target.classList)">Calcular Câmbio</a>
                             </li> 
                             <li class="nav-item">
-                                <a href="" class="nav-link diaSemana">Verificar Dia da Semana</a>
+                                <a href="" class="nav-link diaSemana" @click.prevent="verificarLink($event.target.classList)">Verificar Dia da Semana</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link desconto">Calcular Desconto</a>
+                                <a href="" class="nav-link desconto" @click.prevent="verificarLink($event.target.classList)">Calcular Desconto</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalSobre">Sobre</a>
@@ -58,7 +58,7 @@
        <!-- BOAS VINDAS -->
        <section class="p-3 my-2 bg-primary shadow">
            <div class="container-fluid py-5 text-center">
-               <h2 class="display-6 fw-bold text-light">Olá, Seja Bem Vindo ao Nosso Sistema</h2>
+               <h2 class="display-6 fw-bold text-light">{{ textoInicial }}</h2>
            </div>
        </section>
 
