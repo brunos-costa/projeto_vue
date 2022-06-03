@@ -75,12 +75,19 @@
                <form action="">
                     <div class="d-flex align-items-center">
                         <span class="material-symbols-outlined fs-1 me-2">event</span>
-                        <input type="number" class="form-control form-control-lg" placeholder="Digite o ano do seu nascimento com 4 dígitos" min="1900" max="2050" required v-model="campoIdade">
+                        <input type="number" class="form-control form-control-lg" placeholder="Digite o ano do seu nascimento com 4 dígitos" min="1900" max="2050" required v-model="campoIdade" @keyup="validarIdade()">
+                    </div>
+
+                    <div class="text-start">
+                        <small class="text-danger">{{ info }}</small>
                     </div>
 
                     <div class="d-flex justify-content-end mt-2">
                         <button type="submit" class="btn btn-lg btn-primary" @click.prevent="calcularIdade()">Calcular</button>
                     </div>
+
+                    <p class="lead text-start">{{ resultado }}</p>
+
                </form>
            </div>
        </section>

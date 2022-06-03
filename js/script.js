@@ -15,7 +15,9 @@ const app = Vue.createApp({
                 desconto : "Calcular  o  resultado  a  partir  de  um  valor  base  e  o percentual de desconto indicados pelo usuário"
             },
             textoInicial:'Olá, Seja Bem Vindo ao Nosso Sistema',
-            campoIdade:''
+            campoIdade:'',
+            resultado:'',
+            info:''
         }
     },
     methods:{
@@ -37,8 +39,23 @@ const app = Vue.createApp({
         },
         calcularIdade(){
             let anoAtual = new Date().getFullYear()// Estou pegando o ano atual
-            let resposta = anoAtual - this.campoIdade
-            console.log(resposta)
+            if(this.validarIdade()){
+                let resposta = anoAtual - this.campoIdade
+                //console.log(resposta)
+                this.resultado = `Você possui ${resposta} anos` 
+            }
+            
+        },
+        validarIdade(){
+            if(this.campoIdade < 1900 || this.campoIdade > 2050){
+                this.info = "Você precisa informar um valor entre 1900 e 2050"
+                this.resultado = ""// Irá retirar a mensagem do cálculo da idade
+                return false// Significa que o usuário inseriu um valor errado
+            }
+            else{
+               this.info=""
+                return true// Significa que o usuário inseriu um valor correto
+            }
         }
     }
 })
