@@ -19,7 +19,9 @@ const app = Vue.createApp({
             resultado:'',
             info:'',
             dolar:'',
-            cotacao:''
+            cotacao:'',
+            data:'',
+            statusTooltip: false // pra verificar se o Tooltip já foi ativado
         }
     },
     methods:{
@@ -70,6 +72,28 @@ const app = Vue.createApp({
                 this.info = "Informe apenas números inteiros ou separados por ponto com 2 casas decimais"
                 this.resultado=""
             }
+        },
+        verificarDiaSemana(){
+            let dias = ["Segunda-feira", "Terça-feira", "Quarta-feira","Quinta-feira", "Sexta-feira", "Sábado", "Domingo"]
+            let diaSemana = new Date(this.data).getDay() // getDay() retorna o dia da semana sendo 0 para segunda e 6 domingo
+            if(this.data != ""){
+                this.resultado = `Essa data é ${dias[diaSemana]}`
+                this.info=""
+            }
+            else{
+                this.info="Informe uma data válida"
+                this.resultado =""
+            }
+            
+
+        },
+        ativarTooltip(){
+            if(!this.statusTooltip){
+                const diaSemana = document.querySelector('#diaSemana')
+                const tooltip = new bootstrap.Tooltip(diaSemana)
+                this.statusTooltip = true
+            }
+
         }
     }
 })
