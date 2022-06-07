@@ -32,16 +32,16 @@
                         <ul class="navbar-nav justify-content-end flex-grow-1">
                             <li class="nav-item">
                                 <!-- $event permite acessar o evento orginal do DOM de forma que eu consiga manipular todo o conteúdo do elemento-->
-                                <a href="" class="nav-link idade" @click.prevent="verificarLink($event.target.classList)">Calcular Idade</a>
+                                <a href="" class="nav-link idade" @click.prevent="verificarLink($event.target.classList)" :class="{ativo:bloco.idade}"  data-bs-dismiss="offcanvas">Calcular Idade</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link cambio" @click.prevent="verificarLink($event.target.classList)">Calcular Câmbio</a>
+                                <a href="" class="nav-link cambio" @click.prevent="verificarLink($event.target.classList)" :class="{ativo:bloco.cambio}" data-bs-dismiss="offcanvas">Calcular Câmbio</a>
                             </li> 
                             <li class="nav-item">
-                                <a href="" class="nav-link diaSemana" @click.prevent="verificarLink($event.target.classList)">Verificar Dia da Semana</a>
+                                <a href="" class="nav-link diaSemana" @click.prevent="verificarLink($event.target.classList)" :class="{ativo:bloco.diaSemana}" data-bs-dismiss="offcanvas">Verificar Dia da Semana</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link desconto" @click.prevent="verificarLink($event.target.classList)">Calcular Desconto</a>
+                                <a href="" class="nav-link desconto" @click.prevent="verificarLink($event.target.classList)" :class="{ativo:bloco.desconto}" data-bs-dismiss="offcanvas">Calcular Desconto</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalSobre">Sobre</a>

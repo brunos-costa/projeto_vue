@@ -35,6 +35,8 @@ const app = Vue.createApp({
                 if(itens == elementos){
                     this.bloco[elementos] = true
                     this.textoInicial = this.mensagem[elementos]
+                    this.resultado = "" // resetando as informações
+                    this.info=""
                 }
                 else{
                     this.bloco[elementos] = false
@@ -83,8 +85,7 @@ const app = Vue.createApp({
             else{
                 this.info="Informe uma data válida"
                 this.resultado =""
-            }
-            
+            }           
 
         },
         ativarTooltip(){
