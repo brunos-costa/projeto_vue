@@ -21,7 +21,22 @@ const app = Vue.createApp({
             dolar:'',
             cotacao:'',
             data:'',
-            statusTooltip: false // pra verificar se o Tooltip já foi ativado
+            statusTooltip: false, // pra verificar se o Tooltip já foi ativado
+            dolarOnline:'',
+            cotacaoOnline:'' // Essa variável será um auxiliar
+            
+        }
+    },
+    async mounted(){
+        const url = "https://economia.awesomeapi.com.br/json/last/USD-BRL"
+
+        try {
+            const resposta = await axios.get(url)
+            let dados = resposta.data
+            //console.log(dados.USDBRL.high)
+            this.cotacaoOnline = dados.USDBRL.high
+        } catch (error) {
+            console.log(`O seguinte o erro ocorreu: ${error}`)
         }
     },
     methods:{
@@ -95,6 +110,16 @@ const app = Vue.createApp({
                 this.statusTooltip = true
             }
 
+        },
+        trocarCotacao(){
+            //console.log(this.dolarOnline)
+            if(this.dolarOnline){
+                this.cotacao = Number(this.cotacaoOnline).toFixed(2)// Estamos convertendo texto para número para podermos utilizar a função toFixed()
+            }
+            else{
+                this.cotacao = ""
+            }
+        
         }
     }
 })
